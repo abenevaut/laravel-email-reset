@@ -2,6 +2,8 @@
 
 namespace Yaquawa\Laravel\EmailReset;
 
+use Illuminate\Support\Facades\Config as ConfigFacade;
+
 class Config
 {
     /**
@@ -13,7 +15,7 @@ class Config
      */
     public static function driverConfig(string $driver): array
     {
-        return config("auth.email-reset.{$driver}");
+        return ConfigFacade::get("auth.email-reset.{$driver}");
     }
 
     /**
@@ -23,7 +25,7 @@ class Config
      */
     public static function defaultDriver(): string
     {
-        return config('auth.defaults.email-reset');
+        return ConfigFacade::get('auth.defaults.email-reset');
     }
 
     /**

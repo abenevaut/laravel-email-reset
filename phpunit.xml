@@ -16,12 +16,21 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
-            <exclude>
-                <directory suffix=".php">./src/config</directory>
-                <directory suffix=".php">./src/database</directory>
-            </exclude>
         </whitelist>
     </filter>
+    <php>
+        <env name="APP_KEY" value="base64:T1fsxcp1GJJUqgU8EjNR+PWS5HL0YukNHJcQw0DQLKE="/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_LOCALE" value="en"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="MAIL_DRIVER" value="array"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="BROADCAST_DRIVER" value="null"/>
+    </php>
     <logging>
         <log type="coverage-clover" target="coverage/clover.xml"/>
         <log type="coverage-html" target="coverage"/>
