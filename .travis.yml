@@ -35,6 +35,6 @@ matrix:
 install:
   - travis_retry composer install -o --no-interaction --prefer-dist --no-suggest
   - travis_retry composer update --prefer-source $COMPOSER_FLAGS
-  - composer info illuminate/support | grep "versions"
+  - composer info laravel/framework | grep "versions"
 
 script: vendor/bin/phpunit
