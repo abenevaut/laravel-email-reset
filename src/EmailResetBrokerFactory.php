@@ -1,11 +1,11 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset;
+namespace abenevaut\Laravel\EmailReset;
 
 use InvalidArgumentException;
 use Illuminate\Support\Str;
-use Yaquawa\Laravel\TokenRepository\DatabaseTokenRepository;
-use Yaquawa\Laravel\EmailReset\Contracts\EmailResetBroker as EmailResetBrokerInterface;
+use abenevaut\Laravel\TokenRepository\DatabaseTokenRepository;
+use abenevaut\Laravel\EmailReset\Contracts\EmailResetBroker as EmailResetBrokerInterface;
 
 class EmailResetBrokerFactory
 {
@@ -74,6 +74,7 @@ class EmailResetBrokerFactory
 
         $connection = $config['connection'] ?? null;
 
+        // phpcs:ignore @phpstan-ignore-next-line
         return new DatabaseTokenRepository(
             app('db')->connection($connection),
             app('hash'),

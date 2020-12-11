@@ -1,6 +1,6 @@
 Laravel package to reset users emails
 1. send verification link to user's new email
-2. on click on verification link, new email is verified and changed
+1. on click on verification link, new email is verified and changed
 
 ## Installation process
 Follow few installation steps to set up vendor.
@@ -57,7 +57,7 @@ namespace App\Models;
 
 class User extends Authenticatable
 {
-    use \Yaquawa\Laravel\EmailReset\CanResetEmail;
+    use \abenevaut\Laravel\EmailReset\CanResetEmail;
 }
 ```
 
@@ -80,7 +80,7 @@ You can change this behavior by overriding `ResetEmail` trait methods in your co
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Yaquawa\Laravel\EmailReset\ResetEmail;
+use abenevaut\Laravel\EmailReset\ResetEmail;
 
 class ResetEmailController extends Controller
 {
@@ -144,7 +144,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Notifications\Messages\MailMessage;
-use Yaquawa\Laravel\EmailReset\Notifications\EmailResetNotification;
+use abenevaut\Laravel\EmailReset\Notifications\EmailResetNotification;
 
 class AppServiceProvider extends ServiceProvider
 {

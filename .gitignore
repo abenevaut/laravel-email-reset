@@ -1,5 +1,6 @@
 .DS_Store
-vendor/
+vendor
 composer.lock
-.idea/
 .phpunit.result.cache
+.idea
+coverage

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset;
+namespace abenevaut\Laravel\EmailReset;
 
 use Illuminate\Support\Facades\Auth;
 

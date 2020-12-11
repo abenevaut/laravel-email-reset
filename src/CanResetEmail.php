@@ -1,6 +1,6 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset;
+namespace abenevaut\Laravel\EmailReset;
 
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +21,7 @@ trait CanResetEmail
     /**
      * Notify the user to verify the new email.
      *
-     * @see \Yaquawa\Laravel\EmailReset\Notifications\EmailResetNotification for customize the mail contents.
+     * @see \abenevaut\Laravel\EmailReset\Notifications\EmailResetNotification for customize the mail contents.
      *
      * @param string $newEmail
      */
@@ -40,7 +40,9 @@ trait CanResetEmail
             return $this->newEmail;
         }
 
-        $record = DB::table(Config::defaultDriverConfig('table'))->where('user_id', $this->getAuthIdentifier())->first();
+        $record = DB::table(Config::defaultDriverConfig('table'))
+            ->where('user_id', $this->getAuthIdentifier())
+            ->first();
 
         if ($record) {
             return $this->newEmail = $record->new_email;

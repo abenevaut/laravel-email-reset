@@ -4,8 +4,14 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateEmailResetsTable
+ *
+ * phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+ */
 class CreateEmailResetsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *

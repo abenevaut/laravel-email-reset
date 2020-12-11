@@ -1,6 +1,6 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset;
+namespace abenevaut\Laravel\EmailReset;
 
 class Config
 {
@@ -9,9 +9,9 @@ class Config
      *
      * @param string $driver
      *
-     * @return array
+     * @return string
      */
-    public static function driverConfig(string $driver): array
+    public static function driverConfig(string $driver): string
     {
         return config("auth.email-reset.{$driver}");
     }

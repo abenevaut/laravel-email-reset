@@ -1,11 +1,11 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset\Notifications;
+namespace abenevaut\Laravel\EmailReset\Notifications;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Yaquawa\Laravel\EmailReset\Config;
+use abenevaut\Laravel\EmailReset\Config;
 
 class EmailResetNotification extends Notification
 {
@@ -74,10 +74,10 @@ class EmailResetNotification extends Notification
             'new_email' => $notifiable->new_email,
         ];
 
-        return (new MailMessage)
-            ->line(trans()->getFromJson('You are receiving this email because we received a email reset request for your account.', $translationParameters))
-            ->action(trans()->getFromJson('Reset Email', $translationParameters), $resetLink)
-            ->line(trans()->getFromJson('If you did not request a email reset, no further action is required.', $translationParameters));
+        return (new MailMessage())
+            ->line(trans('notification_line1', $translationParameters))
+            ->action(trans('notification_button', $translationParameters), $resetLink)
+            ->line(trans('notification_line2', $translationParameters));
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset;
+namespace abenevaut\Laravel\EmailReset;
 
 use Illuminate\Foundation\Auth\User;
-use Yaquawa\Laravel\TokenRepository\Contracts\TokenRepository;
-use Yaquawa\Laravel\EmailReset\Notifications\EmailResetNotification;
-use Yaquawa\Laravel\EmailReset\Contracts\EmailResetBroker as EmailResetBrokerInterface;
+use abenevaut\Laravel\TokenRepository\Contracts\TokenRepository;
+use abenevaut\Laravel\EmailReset\Notifications\EmailResetNotification;
+use abenevaut\Laravel\EmailReset\Contracts\EmailResetBroker as EmailResetBrokerInterface;
 
 class EmailResetBroker implements EmailResetBrokerInterface
 {
@@ -18,6 +18,8 @@ class EmailResetBroker implements EmailResetBrokerInterface
 
 
     /**
+     * @phpstan-ignore-next-line
+     *
      * Create a new email reset broker instance.
      *
      * @return void
@@ -38,6 +40,7 @@ class EmailResetBroker implements EmailResetBrokerInterface
     {
         $token = $this->createToken($user);
 
+        // phpcs:ignore
         $user->useNewEmailForNotificationOnce(function ($user) use ($token) {
             $user->notify(
                 new EmailResetNotification($token, $user)
@@ -58,7 +61,7 @@ class EmailResetBroker implements EmailResetBrokerInterface
     {
         $record = $this->findToken($user, $token);
 
-        if ( ! $record) {
+        if (!$record) {
             return static::INVALID_TOKEN;
         }
 

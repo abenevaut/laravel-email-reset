@@ -1,9 +1,9 @@
 <?php
 
-namespace Yaquawa\Tests;
+namespace abenevaut\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Yaquawa\Laravel\EmailReset\Config;
+use abenevaut\Laravel\EmailReset\Config;
 
 class ConfigTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset;
+namespace abenevaut\Laravel\EmailReset;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -66,11 +66,12 @@ class EmailResetServiceProvider extends ServiceProvider
 
     public function registerRoutes(): void
     {
-        if ( ! $this->app->routesAreCached()) {
+        if (!$this->app->routesAreCached()) {
             $route = Config::defaultDriverConfig('route') ?? 'email/reset/{token}';
 
-            Route::middleware(['web', 'auth'])->get($route, Config::defaultDriverConfig('callback'))->name('email-reset');
+            Route::middleware(['web', 'auth'])
+                ->get($route, 'App\Http\Controllers\Auth\ResetEmailController@reset')
+                ->name('email-reset');
         }
-
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yaquawa\Laravel\EmailReset\Contracts;
+namespace abenevaut\Laravel\EmailReset\Contracts;
 
 use Illuminate\Foundation\Auth\User;
 
